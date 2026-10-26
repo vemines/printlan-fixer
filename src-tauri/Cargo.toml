@@ -1,0 +1,27 @@
+[package]
+name = "printlan-fixer"
+version = "1.0.0"
+description = "PrintLAN Fixer - Chan doan & Khac phuc loi chia se may in qua mang LAN tren Windows 10/11"
+authors = ["VeMines"]
+edition = "2021"
+rust-version = "1.77.2"
+
+[lib]
+name = "app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.7.4", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+tauri = { version = "2.12.5", features = [] }
+tauri-plugin-window-state = "2"
+
+[profile.release]
+opt-level = "z"     # Tối ưu kích thước nhị phân nhỏ nhất (size optimization)
+lto = true          # Link-Time Optimization toàn cục xuyên crate
+codegen-units = 1   # Gom về 1 codegen unit để trình biên dịch optimize và inline triệt để
+panic = "abort"     # Loại bỏ bảng stack unwinding không cần thiết
+strip = true        # Tự động strip sạch toàn bộ debug symbol / symbols table

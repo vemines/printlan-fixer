@@ -1,0 +1,744 @@
+{
+  "appTitle": "PrintLAN Fixer",
+  "appSubtitleLine1": "Diagnose & fix all network printer sharing errors across LAN",
+  "statusModalTitle": "System & Printer Service Status",
+  "statusModalDesc": "Status of Services and Ports:",
+  "spoolerService": "Print Spooler (spoolsv.exe)",
+  "firewallService": "Windows Firewall (MpsSvc)",
+  "portsService": "RPC / SMB Ports (TCP 135 / 445)",
+  "restartSpooler": "Restart Spooler",
+  "enableFirewall": "Enable Firewall",
+  "testPorts": "Test Ports",
+  "close": "Close",
+  "searchPlaceholder": "Search error code (011b, 709, bc4...) or name...",
+  "log": "Log",
+  "tabServer": "SERVER",
+  "tabClient": "CLIENT",
+  "tabTools": "TOOLS",
+  "tabServerSub": "Host sharing the printer",
+  "tabClientSub": "Client connecting over LAN",
+  "tabToolsSub": "Spooler rescue, Network, Drivers & Utilities",
+  "fixBtn": "FIX",
+  "fixing": "Fixing...",
+  "fixed": "Fixed",
+  "detail": "Detail",
+  "copyCmd": "Copy Command",
+  "copied": "Copied",
+  "noErrorsFound": "No matching error codes found",
+  "clearSearch": "Clear search",
+  "logTitle": "LOG CONSOLE",
+  "logReady": "Ready to diagnose and fix errors",
+  "rootCause": "Root Cause Technical Analysis",
+  "fixProcedure": "Standard Remediation Procedure",
+  "regKeys": "Related Registry Keys",
+  "execScript": "Execution Script",
+  "riskNote": "Security Notice",
+  "fixThisError": "Fix",
+  "credModalTitle": "Saved Network Credentials",
+  "credModalDesc": "Target printer servers and user logon sessions stored in Windows:",
+  "addCred": "Add Credential",
+  "pingCheck": "Ping & Check",
+  "save": "Save",
+  "networkMessages": {
+    "smbOpen": "SMB Port (TCP 445) open - Server ready for printing!",
+    "rpcOpen": "RPC Port (TCP 135) open - LAN connection reachable!",
+    "icmpPing": "Host replied to ICMP Ping (Ports 445/135 may be closed or blocked by firewall).",
+    "cannotReach": "Cannot reach host (Offline, IP changed, or invalid hostname).",
+    "invalidHost": "Invalid host name or IP address."
+  },
+  "printerModal": {
+    "title": "Installed Printers & Queue",
+    "desc": "Inspect printer status, active spool queue, print test page or sharing config",
+    "search": "Search printer...",
+    "printTest": "Print Test",
+    "printTestDesc": "Print a test page",
+    "preferences": "Preferences",
+    "preferencesDesc": "Configure printer functions",
+    "properties": "Properties",
+    "propertiesDesc": "Open Printer Properties",
+    "setDefault": "Set Default",
+    "isDefault": "Default",
+    "setDefaultDesc": "Set as default printer",
+    "clearQueue": "Clear Queue",
+    "clearQueueDesc": "Clear all queued print jobs",
+    "viewQueue": "View Queue",
+    "viewQueueDesc": "Open Windows Native Spooler Queue dialog when troubleshooting",
+    "removeDevice": "Remove Device",
+    "removeDeviceDesc": "Remove this printer device from Windows",
+    "removeConfirm": "Are you sure you want to remove printer \"{name}\" from Windows?",
+    "manageAdvancedSharing": "Manage advanced sharing settings",
+    "open": "Open",
+    "sharingConfig": "LAN Printer Sharing Configuration",
+    "allowSharing": "Share this printer across local network",
+    "shareName": "Network Share Name:",
+    "shareNameTip": "Tip: Keep share name short without spaces to prevent 0x00000709 connection errors on client PCs.",
+    "saveSettings": "Save Settings",
+    "noticeTestSent": "Sent test page to \"{name}\"",
+    "noticePrefOpened": "Opened Preferences for \"{name}\"",
+    "noticePropOpened": "Opened Properties for \"{name}\"",
+    "noticeQueueOpened": "Opened Windows Print Queue window",
+    "noticeQueueCleared": "Cleared queue jobs for \"{name}\"",
+    "noticeDefaultSet": "Set \"{name}\" as default printer",
+    "noticeDeviceRemoved": "Removed printer device \"{name}\"",
+    "noticeShareEnabled": "Shared as: \\\\%COMPUTERNAME%\\{shareName}",
+    "noticeShareDisabled": "Printer sharing disabled",
+    "noticeAdvSharingOpened": "Opened Windows Advanced Sharing Settings",
+    "addLanPrinter": "Add LAN Printer",
+    "addLanModalTitle": "Add Network Shared Printer",
+    "addLanModalDesc": "Connect to a shared printer using host IP or PC name and credentials",
+    "hostFieldLabel": "PC Name or IP Address",
+    "hostPlaceholder": "e.g. 192.168.1.100 or PRINT-SERVER",
+    "printerFieldLabel": "Printer Share Name",
+    "printerPlaceholder": "e.g. Canon2900 or HP_M404dn",
+    "userFieldLabel": "Username (Optional)",
+    "userPlaceholder": "e.g. Administrator or leave blank",
+    "passFieldLabel": "Password (Optional)",
+    "passPlaceholder": "••••••••",
+    "connectBtn": "Add Printer",
+    "connecting": "Connecting...",
+    "cancel": "Cancel",
+    "noticeLanPrinterAdded": "Connected to LAN Printer: \\\\{host}\\{printer}",
+    "fillRequiredFields": "Please provide both PC Name/IP and Printer Share Name",
+    "badgeSharing": "Sharing",
+    "badgeShared": "LAN",
+    "lanInfoTitle": "Remote LAN Printer Info",
+    "lanServerHost": "Print Server (Host / IP):",
+    "lanShareName": "Share Name:",
+    "lanUncPath": "Network Path (UNC):",
+    "lanNotice": "This printer is connected from a remote LAN server. Sharing settings are managed on the host computer.",
+    "dialogOk": "OK",
+    "dialogCancel": "Cancel",
+    "dialogNotice": "Notice",
+    "dialogConfirm": "Confirm",
+    "confirmClearQueueTitle": "Clear Print Queue",
+    "confirmClearQueueMsg": "Are you sure you want to clear all queued print jobs for \"{name}\"?",
+    "confirmRemoveTitle": "Remove Printer Device",
+    "confirmRemoveMsg": "Are you sure you want to remove printer \"{name}\" from Windows?",
+    "testPageErrorTitle": "Test Page Print Error",
+    "testPageErrorMsg": "Could not print Test Page for \"{name}\". Details: {detail}",
+    "prefErrorTitle": "Error Opening Preferences",
+    "prefErrorMsg": "Cannot open Printing Preferences: {detail}",
+    "propErrorTitle": "Error Opening Properties",
+    "propErrorMsg": "Cannot open Printer Properties: {detail}",
+    "queueErrorTitle": "Error Opening Print Queue",
+    "queueErrorMsg": "Cannot open print queue for \"{name}\": {detail}",
+    "setDefaultErrorTitle": "Error Setting Default Printer",
+    "setDefaultErrorMsg": "Could not set \"{name}\" as default printer. Details: {detail}",
+    "removeErrorTitle": "Error Removing Printer",
+    "removeErrorMsg": "Could not remove printer \"{name}\". Details: {detail}",
+    "netConnectErrorTitle": "Cannot Reach LAN Server",
+    "netConnectErrorMsg": "Cannot reach LAN print server \"{host}\".\n\nDetails: {detail}\n\nPlease check:\n• Server IP address or hostname \"{host}\" is correct.\n• Host machine is powered on and connected to the same LAN/Wi-Fi.\n• Server firewall allows file and printer sharing (TCP 445 / 135).",
+    "errPrinterNotFound": "Host \"{host}\" is reachable, but could not find printer share name \"{printer}\". Please verify the exact Share Name on the server.",
+    "errAccessDenied": "Access is denied. Please enter server username and password, or verify sharing permissions in Printer Properties > Security.",
+    "errSystemNotFound": "The printer was not found installed in Windows system.",
+    "addLanErrorTitle": "Failed to Add LAN Printer",
+    "addLanErrorMsg": "Could not add network printer \"{path}\".\n\nReason: {detail}",
+    "scanPrintersTitle": "Scan printers",
+    "scanningPrintersText": "Scanning Windows system printers...",
+    "queryingSpoolerText": "Querying Spooler & WMI Device",
+    "emptyListNoPrinters": "No printers found",
+    "emptyListNoMatching": "No matching printers",
+    "emptyListHelpNoPrinters": "Click \"+ LAN Printer\" above to connect a printer.",
+    "emptyListHelpNoMatching": "Try searching with a different keyword.",
+    "noPrinterSelectedTitle": "No printer selected",
+    "noPrinterSelectedDesc": "Printer list is empty. Click + LAN Printer on the left to connect a network printer."
+  },
+  "utilityDrawer": {
+    "customParams": "Custom Parameters (Auto Applied)",
+    "serverIpLabel": "Print Server IP or Host:",
+    "printerNameLabel": "Target Printer Name:",
+    "riskNotice": "Advanced action may alter existing drivers. Rebooting is recommended after execution."
+  },
+  "fix709Modal": {
+    "title": "Select 0x709 Fix Option (Win 11 Server)",
+    "description": "The print server must allow RPC/Named Pipes connections for Win 10 clients. Please choose one of the options below:",
+    "option1Title": "Option 1: Replace 3 compatible Spooler DLL files",
+    "advantageLabel": "Advantage:",
+    "option1Advantage": "Only run once on the server; all Win 10 client PCs can connect and print immediately without client configuration.",
+    "backupPathLabel": "Backup folder path:",
+    "option2Title": "Option 2: Update Server Registry (RpcProtocols = 7)",
+    "option2Advantage": "Absolute safety, does not modify any Windows system files.",
+    "option2Note": "Note: Each Win 10 client PC must also run the client registry script.",
+    "inspectScript": "Inspect Script ({option})",
+    "option1Label": "Option 1",
+    "option2Label": "Option 2",
+    "collapse": "Collapse",
+    "expand": "Expand",
+    "copyScript": "Copy",
+    "copied": "Copied",
+    "restoreBackup": "Restore Backup DLL",
+    "restoreBackupTooltip": "Restore original 3 DLL files from backup_dll folder",
+    "cancel": "Cancel",
+    "apply": "Apply Selected Option"
+  },
+  "header": {
+    "printerListTitle": "Device Printers & Print Queue",
+    "checkingTitle": "Checking system services...",
+    "checkingText": "Checking...",
+    "healthyTitle": "Print Spooler and Ports are active",
+    "healthyText": "Available",
+    "degradedTitle": "Services degraded or ports closed",
+    "degradedText": "Attention",
+    "toggleLog": "Toggle Log console",
+    "switchLight": "Switch to Light mode",
+    "switchDark": "Switch to Dark mode",
+    "aboutTitle": "About application, author & support"
+  },
+  "statusModal": {
+    "title": "System & Printer Service Status",
+    "desc": "Status of Windows core printer services and communication ports:",
+    "refreshTitle": "Refresh status",
+    "spoolerRunning": "Running",
+    "spoolerStopped": "Stopped / Error",
+    "startSpooler": "Start Spooler",
+    "firewallEnabled": "Enabled in Firewall",
+    "firewallDisabled": "Sharing rule disabled"
+  },
+  "detailDrawer": {
+    "serverRole": "Server",
+    "clientRole": "Client",
+    "bothRole": "Server & Client",
+    "banner709Title": "Windows 11 Server has 2 fix methods for 709",
+    "banner709Desc": "Option 1 (Replace 3 Spooler DLLs) or Option 2 (Update Registry RpcProtocols = 7)",
+    "chooseMethod": "Choose Method"
+  },
+  "credentialModal": {
+    "title": "Saved Network Credentials",
+    "desc": "Target printer servers and user logon sessions stored in Windows:",
+    "refreshTitle": "Refresh list",
+    "emptyTitle": "No stored credentials",
+    "emptyDesc": "Click \"+ Add Credential\" to store credentials for LAN.",
+    "deleteTitle": "Delete this credential",
+    "countText": "{count} saved credential(s)",
+    "connectionFailed": "Connection failed",
+    "addModalTitle": "Add Network Credential",
+    "serverFieldLabel": "Server IP / Hostname",
+    "serverPlaceholder": "e.g. 192.168.1.100 or PRINT-SERVER",
+    "userFieldLabel": "Username",
+    "userPlaceholder": "e.g. Administrator or user1",
+    "passFieldLabel": "Password",
+    "passPlaceholder": "Leave blank if none",
+    "note": "Credential is saved into Windows Credential Manager for LAN printer authentication.",
+    "saveBtn": "Save Credential"
+  },
+  "appLogs": {
+    "startRepair": "START REPAIRING",
+    "appliedFix": "Successfully applied fix configuration for",
+    "completedTool": "Completed tool:"
+  },
+  "errors": {
+    "err-bc4": {
+      "title": "Printer Not Found (Win 11 RPC Block)",
+      "desc": "Windows cannot find network shared printer on Windows 11 22H2/23H2/24H2.",
+      "rootCause": "Windows 11 update changed default RPC policy to RPC over TCP, blocking legacy RPC over Named Pipes on port 445 SMB.",
+      "fixSteps": [
+        "Enable RPC over Named Pipes policy in client Registry",
+        "Enable NTLM authentication fallback for IP connections (ForceKerberosForRpc = 0)",
+        "Restart Print Spooler service",
+        "Reconnect printer using network path: \\\\SERVER_IP\\SHARE_NAME"
+      ]
+    },
+    "err-bcb": {
+      "title": "Blocked Downloading Shared Printer Driver",
+      "desc": "Cannot connect to printer due to Point and Print driver download restrictions.",
+      "rootCause": "Windows Point and Print policy blocks standard users from downloading print drivers from untrusted servers.",
+      "fixSteps": [
+        "Remove Admin-only driver installation restriction in Registry",
+        "Disable elevation prompt warning when installing Point and Print printer",
+        "Restart Spooler and reconnect to shared printer"
+      ],
+      "riskNote": "Allows standard users on local network to install shared printer drivers without Administrator privileges (softens Point and Print restrictions)."
+    },
+    "err-bc5": {
+      "title": "Untrusted Driver Package Blocked",
+      "desc": "System blocked driver package installation from untrusted print server.",
+      "rootCause": "Windows requires Point and Print servers to be explicitly whitelisted in Group Policy.",
+      "fixSteps": [
+        "Download and install official driver locally on workstation first",
+        "Temporarily disable driver signature enforcement for modified drivers",
+        "Reconnect to shared printer once local driver is installed"
+      ]
+    },
+    "err-bc6": {
+      "title": "Driver Architecture Mismatch (x86/x64)",
+      "desc": "Print server lacks matching driver architecture for this workstation.",
+      "rootCause": "The server does not share an additional 32-bit (x86) or 64-bit (x64) driver package compatible with client OS.",
+      "fixSteps": [
+        "On Print Server, open Print Server Properties to add matching architecture driver",
+        "Or pre-install matching 64-bit/32-bit driver locally on workstation",
+        "Reconnect printer via network UNC path"
+      ]
+    },
+    "err-bc7": {
+      "title": "Driver Package Signature Error",
+      "desc": "Shared driver blocked due to revoked digital signature or expired WHQL certificate.",
+      "rootCause": "Windows Driver Signature Enforcement blocks installing drivers with expired or untrusted catalog files.",
+      "fixSteps": [
+        "Install WHQL-certified driver package",
+        "Import vendor root certificate into Trusted Publishers store",
+        "Restart Spooler and retry connection"
+      ]
+    },
+    "err-bc8": {
+      "title": "Core Driver Dependency Installation Error",
+      "desc": "Unable to install printer due to missing Windows Core Driver dependencies.",
+      "rootCause": "Printer driver package relies on built-in Windows core print drivers (ntprint.inf) that are missing.",
+      "fixSteps": [
+        "Restore built-in ntprint.inf core drivers from Windows Driver Store",
+        "Re-register Spooler system dependencies",
+        "Restart Print Spooler service"
+      ]
+    },
+    "err-bcd": {
+      "title": "Point & Print Permission Blocked (User Restrict)",
+      "desc": "Standard user lacks administrative privileges to install remote printer drivers.",
+      "rootCause": "Microsoft security hardening mandates administrator approval for all Point and Print driver installs.",
+      "fixSteps": [
+        "Configure RestrictDriverInstallationToAdministrators = 0",
+        "Set PointAndPrint PackagePointAndPrintServerList to trust local subnet",
+        "Restart Print Spooler service"
+      ]
+    },
+    "err-bce": {
+      "title": "Print Server Security Certificate Conflict",
+      "desc": "RPC connection encryption between client and print server failed authentication.",
+      "rootCause": "Negotiation between Kerberos, NTLM, and RPC encryption failed on shared printer endpoint.",
+      "fixSteps": [
+        "Configure RpcAuthentication = 0 on client",
+        "Synchronize system clocks between client and print server",
+        "Reconnect printer using IP address"
+      ]
+    },
+    "err-11b": {
+      "title": "RPC Authentication Level Error (PrintNightmare)",
+      "desc": "Windows blocks shared printer connection due to RpcAuthnLevelPrivacyEnabled requirements.",
+      "rootCause": "PrintNightmare security patch mandates packet privacy encryption (RPC Level 6) on the Print Spooler server.",
+      "fixSteps": [
+        "On Print Server, set RpcAuthnLevelPrivacyEnabled = 0 in Registry",
+        "Restart Print Spooler on Print Server",
+        "Reconnect printer from client workstation"
+      ],
+      "riskNote": "Lowers RPC Privacy encryption level. Widely used by IT technicians and safe within trusted local network."
+    },
+    "err-709": {
+      "title": "Cannot Connect to Printer (Error 0x709 - Client Side)",
+      "desc": "Windows 10/11 client PC encounters error 0x00000709 when connecting to a network shared printer.",
+      "rootCause": "Occurs when client connects to shared printer UNC path. Windows 11/10 default denies RPC over Named Pipes and fails Kerberos authentication over IP.",
+      "fixSteps": [
+        "Enable RPC over Named Pipes policy (RpcUseNamedPipeProtocol = 1)",
+        "Disable Kerberos requirement for RPC over LAN (ForceKerberosForRpc = 0)",
+        "Enable LegacyDefaultPrinterMode = 1 in Registry",
+        "Restart Spooler and reconnect to printer"
+      ]
+    },
+    "err-709-server": {
+      "title": "Win 11 Printer Sharing Error (Error 0x709 - Server Side)",
+      "desc": "Win 11 Print Server blocks Win 10 client connections. Provides 2 options: Replace 3 DLL files or configure Registry.",
+      "rootCause": "Windows 11 update changed default Spooler RPC listener to RPC over TCP only and disabled Named Pipes, preventing Windows 10 clients from connecting.",
+      "fixSteps": [
+        "Option 1 (Replace 3 Spooler DLLs): Run once on server, auto backup to %ProgramData%\\PrintLANFixer\\backup_dll, all Win 10 clients can print immediately without client configuration.",
+        "Option 2 (Update Server Registry RpcProtocols = 7): Absolute safety, does not modify any Windows system files. Note: Each Win 10 client must run client script.",
+        "Restore original 3 files from backup folder anytime."
+      ]
+    },
+    "err-07c": {
+      "title": "Missing mscms.dll in Spool Directory",
+      "desc": "Issue caused by Windows security patch failing to load mscms.dll from server.",
+      "rootCause": "Windows Spooler cannot copy color management file mscms.dll from server driver store to client directory.",
+      "fixSteps": [
+        "Copy mscms.dll from System32 into spool\\drivers\\x64\\3 directory",
+        "Restart Print Spooler service",
+        "Reconnect shared printer"
+      ]
+    },
+    "err-6ba": {
+      "title": "Print Spooler Stopped (RPC Server Unavailable)",
+      "desc": "Workstation cannot connect to print server because RPC service is unavailable.",
+      "rootCause": "Print Spooler (spoolsv.exe) service is stopped or port TCP 135/445 is blocked by firewall.",
+      "fixSteps": [
+        "Start and configure Print Spooler service to Automatic",
+        "Verify RPC and DCOM Server services are running",
+        "Verify TCP port 135 and 445 on print server"
+      ]
+    },
+    "err-6d9": {
+      "title": "Windows Firewall Blocking Printer Sharing",
+      "desc": "Cannot enable printer sharing because Windows Firewall service is disabled or blocked.",
+      "rootCause": "Windows Firewall (MpsSvc) service must be running and File & Printer Sharing rules enabled.",
+      "fixSteps": [
+        "Start Windows Firewall service (MpsSvc)",
+        "Enable File and Printer Sharing rules in Windows Firewall",
+        "Enable Network Discovery rule group"
+      ]
+    },
+    "err-6be": {
+      "title": "RPC Call Failed (Spooler Crash)",
+      "desc": "Print Spooler process crashed abruptly during remote procedure call.",
+      "rootCause": "Corrupted print processor or buggy third-party print monitor caused spoolsv.exe to crash.",
+      "fixSteps": [
+        "Terminate hung spoolsv.exe process",
+        "Purge corrupted spool queue files in C:\\Windows\\System32\\spool\\PRINTERS",
+        "Restart Print Spooler service"
+      ]
+    },
+    "err-4005": {
+      "title": "Unspecified Error Connecting to Shared Printer",
+      "desc": "Windows encountered an unspecified error connecting to shared printer network path.",
+      "rootCause": "Network discovery, SMBv2/v3 signing, or workgroup communication is misconfigured between PCs.",
+      "fixSteps": [
+        "Enable Network Discovery and File and Printer Sharing in Network Settings",
+        "Verify Workgroup or Domain name consistency between machines",
+        "Test connectivity to host via ping and UNC path: \\\\SERVER_IP"
+      ]
+    },
+    "err-005": {
+      "title": "Access Denied to Shared Printer",
+      "desc": "User account lacks permission to connect or print on target host.",
+      "rootCause": "Sharing permissions or NTFS security on print server does not allow Everyone or Guest account access.",
+      "fixSteps": [
+        "On Print Server, set Printer Security permissions to allow \"Everyone\" Print permission",
+        "Configure Share Permissions to allow Everyone Full Control",
+        "Enable Insecure Guest Authentication if connecting without password"
+      ]
+    },
+    "err-52e": {
+      "title": "Logon Failure (Invalid Credentials)",
+      "desc": "Saved username or password in Windows Credential Manager is incorrect or expired.",
+      "rootCause": "Host PC changed account password or client cached obsolete network credentials.",
+      "fixSteps": [
+        "Open Windows Credential Manager (control keymgr.dll)",
+        "Remove outdated stored Windows Credentials for the print server",
+        "Add new Windows Credential with correct host username and password"
+      ]
+    },
+    "err-35": {
+      "title": "Network Path Not Found",
+      "desc": "The network path was not found when browsing printer host IP or hostname.",
+      "rootCause": "NetBIOS name resolution failed, host PC is unreachable, or subnet mask is mismatched.",
+      "fixSteps": [
+        "Verify host PC is powered on and connected to the same LAN or subnet",
+        "Verify host IP address and ping from client",
+        "Enable SMBv1/v2/v3 client protocol if communicating with legacy server"
+      ]
+    },
+    "err-040": {
+      "title": "Network Name No Longer Available",
+      "desc": "Network communication interrupted or SMB session terminated abruptly.",
+      "rootCause": "Network card sleep mode, SMB session timeout, or unstable Wi-Fi/switch port disconnected printer link.",
+      "fixSteps": [
+        "Disable network adapter Power Saving mode (Allow computer to turn off this device)",
+        "Verify network cable or Wi-Fi link stability",
+        "Restart Print Spooler on both client and host"
+      ]
+    },
+    "err-3e3": {
+      "title": "I/O Operation Aborted (Timeout)",
+      "desc": "Print operation was aborted because print server did not respond in time.",
+      "rootCause": "Large print spool file timeout or corrupted temporary spool files blocking the queue.",
+      "fixSteps": [
+        "Pause Print Spooler and purge huge stuck spool files",
+        "Increase Spooler timeout threshold in Registry",
+        "Restart Spooler and re-submit print job"
+      ]
+    },
+    "err-07e": {
+      "title": "The Specified Module Could Not Be Found",
+      "desc": "System failed to find specific printer driver DLL module in Spool directory.",
+      "rootCause": "Driver files were partially copied or corrupted during network driver installation.",
+      "fixSteps": [
+        "Reinstall printer driver package with admin privileges",
+        "Verify that driver DLL files are present in spool\\drivers folder",
+        "Restart Print Spooler"
+      ]
+    },
+    "err-057": {
+      "title": "Invalid Parameter in Printer Configuration",
+      "desc": "Printer port or Registry settings contain invalid parameters or corrupt entries.",
+      "rootCause": "Printer registry keys in HKLM\\System\\CurrentControlSet\\Control\\Print contain invalid values.",
+      "fixSteps": [
+        "Check printer port mapping in Print Server Properties",
+        "Reconfigure TCP/IP port with correct IP address and Raw 9100 port",
+        "Remove invalid registry keys under HKLM\\SYSTEM\\CurrentControlSet\\Control\\Print\\Printers"
+      ]
+    },
+    "err-bbb": {
+      "title": "Printer Port Does Not Exist",
+      "desc": "The printer points to a TCP/IP port or USB endpoint that no longer exists.",
+      "rootCause": "Printer IP address changed via DHCP or physical USB port changed without remapping.",
+      "fixSteps": [
+        "Verify physical printer USB connection or network IP address",
+        "Reconfigure printer port in Printer Properties > Ports",
+        "Restart Print Spooler"
+      ]
+    },
+    "err-canon-comm": {
+      "title": "Canon LBP 2900 / 3300 Communication Error",
+      "desc": "Canon printer displays \"Communication Error\" over network sharing or USB.",
+      "rootCause": "Conflict between Canon CAPT background monitor and virtual network ports (CNBJNP).",
+      "fixSteps": [
+        "Delete conflicting USB Monitor registry keys",
+        "Scan and remove legacy CNBJNP network monitors",
+        "Copy mscms.dll color module to driver folder",
+        "Restart Print Spooler and re-plug printer USB cable"
+      ]
+    },
+    "err-wpp-win11": {
+      "title": "Windows 11 24H2 Blocks Legacy v3/v4 Drivers",
+      "desc": "Windows Protected Print (WPP) blocks third-party printer drivers completely.",
+      "rootCause": "Windows 11 24H2 activates WPP by default, forcing Mopria/IPP mode and blocking standard INF drivers.",
+      "fixSteps": [
+        "Disable Windows Protected Print mode via Registry / Group Policy",
+        "Restart Print Spooler service",
+        "Install vendor printer driver package (V3 / V4 INF)"
+      ]
+    },
+    "err-spooler-crash": {
+      "title": "Print Spooler Crashes Repeatedly on Startup",
+      "desc": "spoolsv.exe crashes immediately on launch due to corrupt driver files.",
+      "rootCause": "Corrupt 64-bit or 32-bit printer driver binary in spool\\drivers folder triggers access violation.",
+      "fixSteps": [
+        "Isolate corrupted driver folder (rename x64 to x64.old)",
+        "Clear all pending queue files in spool\\PRINTERS",
+        "Restart Print Spooler service to rebuild clean environment"
+      ]
+    }
+  },
+  "utilities": {
+    "util-restart-spooler": {
+      "title": "Restart Print Spooler",
+      "desc": "Force stop hanging spoolsv.exe and safely restart Print Spooler service.",
+      "actionType": "fix",
+      "actionLabel": "Restart",
+      "stepTitles": [
+        "Stop Print Spooler service",
+        "Force terminate hung spoolsv.exe process",
+        "Restart Print Spooler service"
+      ]
+    },
+    "util-clear-queue": {
+      "title": "Clear Stuck Print Queue",
+      "desc": "Flush and delete all stuck print jobs in Windows Spool PRINTERS directory.",
+      "actionType": "fix",
+      "actionLabel": "Clear Queue",
+      "stepTitles": [
+        "Pause Print Spooler service",
+        "Purge spool queue PRINTERS directory",
+        "Restart Print Spooler service"
+      ]
+    },
+    "util-rpc-named-pipes": {
+      "title": "Configure RPC over Named Pipes",
+      "desc": "Allow Windows 11 to connect to shared printers over TCP 445 Named Pipes.",
+      "actionType": "fix",
+      "actionLabel": "Configure",
+      "stepTitles": [
+        "Configure RpcUseNamedPipeProtocol = 1",
+        "Configure RpcProtocols = 7 (Support both TCP & Named Pipes)",
+        "Restart Print Spooler service"
+      ]
+    },
+    "util-enable-firewall-sharing": {
+      "title": "Enable Firewall File & Printer Sharing",
+      "desc": "Enable all firewall rules for File and Printer Sharing & Network Discovery.",
+      "actionType": "fix",
+      "actionLabel": "Enable Firewall",
+      "stepTitles": [
+        "Enable File and Printer Sharing firewall rule group",
+        "Enable Network Discovery firewall rule group",
+        "Start network device discovery services (fdPHost, FDResPub, SSDPSRV, upnphost)"
+      ]
+    },
+    "util-allow-guest-auth": {
+      "title": "Allow Insecure Guest Auth",
+      "desc": "Fix Windows blocking access to printer share when host has no password.",
+      "actionType": "fix",
+      "actionLabel": "Enable Guest",
+      "stepTitles": [
+        "Configure AllowInsecureGuestAuth = 1 in LanmanWorkstation",
+        "Configure ForceGuest = 0 in Lsa",
+        "Restart LanmanWorkstation network service"
+      ]
+    },
+    "util-spooler-crash-recovery": {
+      "title": "Recover Spooler Crash Loop",
+      "desc": "Fix Spooler crashing on startup by isolating corrupted driver directory.",
+      "actionType": "fix",
+      "actionLabel": "Recover",
+      "stepTitles": [
+        "Stop Print Spooler service",
+        "Rename corrupt x64 driver folder to x64.old",
+        "Rename corrupt W32X86 driver folder to W32X86.old",
+        "Restart service to recreate clean driver folder tree"
+      ]
+    },
+    "util-canon-comm-fix": {
+      "title": "Fix Canon LBP 2900 / 3300 Communication Error",
+      "desc": "Resolve Canon communication failure caused by CNBJNP and USB Monitor conflicts.",
+      "actionType": "fix",
+      "actionLabel": "Fix Canon",
+      "stepTitles": [
+        "Stop Print Spooler and purge pending queue files",
+        "Delete conflicting USB Monitor key in Registry",
+        "Scan and remove virtual CNBJNP network monitors",
+        "Copy mscms.dll color module into Spool driver directory",
+        "Restart Spooler and re-plug USB printer cable"
+      ]
+    },
+    "util-toggle-wpp": {
+      "title": "Disable Windows Protected Print (Win 11 24H2)",
+      "desc": "Turn off WPP mode in Windows 11 24H2 to allow legacy printer driver installs.",
+      "actionType": "fix",
+      "actionLabel": "Disable WPP",
+      "stepTitles": [
+        "Create WPP configuration key in Group Policy",
+        "Set WindowsProtectedPrintGroupPolicyState = 0 (Turn off WPP)",
+        "Restart Print Spooler service"
+      ]
+    },
+    "util-reset-spooler-acl": {
+      "title": "Reset Print Spooler Permissions (ACL)",
+      "desc": "Restore default security descriptor and service startup permissions for Spooler.",
+      "actionType": "fix",
+      "actionLabel": "Reset ACL",
+      "stepTitles": [
+        "Set service Startup type to Automatic",
+        "Apply standard SDDL Security Descriptor permissions to Spooler",
+        "Start Print Spooler service"
+      ]
+    },
+    "util-clean-tcp-ports": {
+      "title": "Clean Stale TCP/IP Printer Ports",
+      "desc": "Remove obsolete or conflicting network IP printer ports from Windows Registry.",
+      "actionType": "fix",
+      "actionLabel": "Clean Ports",
+      "stepTitles": [
+        "Query Registry for existing printer ports",
+        "Filter and purge invalid stale IP ports",
+        "Restart Print Spooler service"
+      ]
+    },
+    "util-list-remove-drivers": {
+      "title": "Manage & Remove Drivers via PnPUtil",
+      "desc": "Enumerate 3rd party printer driver packages (oemXX.inf) and force remove bad ones.",
+      "actionType": "fix",
+      "actionLabel": "Remove Drivers",
+      "stepTitles": [
+        "Enumerate all 3rd party drivers in Driver Store",
+        "Force uninstall corrupt driver package (oemXX.inf)"
+      ]
+    },
+    "util-credential-manager": {
+      "title": "Manage Windows Print Credentials",
+      "desc": "View, add or delete stored printer host network logon credentials.",
+      "actionType": "manage",
+      "actionLabel": "Manage",
+      "stepTitles": [
+        "List saved Windows Network Credentials",
+        "Add printer server logon credentials",
+        "Delete obsolete or incorrect credentials"
+      ]
+    },
+    "util-open-print-mgmt": {
+      "title": "Open Print Management (printmanagement.msc)",
+      "desc": "Open Windows advanced print management snap-in for drivers, ports and servers.",
+      "actionType": "open",
+      "actionLabel": "Open",
+      "stepTitles": [
+        "Launch Print Management Microsoft Management Console"
+      ]
+    },
+    "util-open-print-server-props": {
+      "title": "Open Print Server Properties",
+      "desc": "Directly open Print Server Properties dialog for Forms, Ports and Drivers.",
+      "actionType": "open",
+      "actionLabel": "Open",
+      "stepTitles": [
+        "Call printui.dll to open Print Server Properties"
+      ]
+    },
+    "util-open-services": {
+      "title": "Open Services Management (services.msc)",
+      "desc": "Inspect and manage Spooler, LanmanServer, LanmanWorkstation & RPC services.",
+      "actionType": "open",
+      "actionLabel": "Open",
+      "stepTitles": [
+        "Open Windows Services Management Console"
+      ]
+    },
+    "util-open-devmgmt": {
+      "title": "Open Device Manager (devmgmt.msc)",
+      "desc": "Verify USB printer controllers, virtual ports and device hardware status.",
+      "actionType": "open",
+      "actionLabel": "Open",
+      "stepTitles": [
+        "Launch Windows Device Manager"
+      ]
+    },
+    "util-fix-canon-2900": {
+      "title": "Fix Canon LBP 2900 / 3300 Comm Error",
+      "desc": "Resolves Canon printer Communication Error: terminates stuck Canon Language Monitor processes (CNAB4SWK / captmon), flushes print queue and restarts Spooler.",
+      "actionType": "fix",
+      "actionLabel": "Fix",
+      "stepTitles": [
+        "Stop Print Spooler and kill hanging Canon Monitor process",
+        "Clear corrupted print jobs in Spool PRINTERS directory",
+        "Restart Print Spooler service"
+      ]
+    },
+    "util-wpp-toggle": {
+      "title": "Toggle Windows Protected Print (WPP)",
+      "desc": "Disable Windows Protected Print mode on Windows 11 24H2 to allow installing and sharing legacy third-party printer drivers.",
+      "actionType": "fix",
+      "actionLabel": "Toggle WPP",
+      "stepTitles": [
+        "Remove Registry policy enforcing WPP",
+        "Restart Print Spooler service",
+        "Open Printers Settings to verify"
+      ]
+    },
+    "util-open-devices-printers": {
+      "title": "Open Devices and Printers",
+      "desc": "Open Devices and Printers Control Panel window on Windows 10/11.",
+      "actionType": "open",
+      "actionLabel": "Open",
+      "stepTitles": [
+        "Open Devices and Printers"
+      ]
+    }
+  },
+  "aboutModal": {
+    "title": "Application Information",
+    "subtitle": "PrintLAN Fixer - LAN Printer Diagnostic & Troubleshooting Utility",
+    "tabAbout": "About",
+    "tabDisclaimer": "Disclaimer",
+    "tabFeedback": "Feedback & Issues",
+    "tabDonate": "Donate & Sponsor",
+    "authorLabel": "Author",
+    "authorName": "VeMines",
+    "versionLabel": "Version",
+    "versionValue": "v1.0.0",
+    "licenseLabel": "License",
+    "licenseValue": "MIT License",
+    "appIntro": "PrintLAN Fixer is a high-performance standalone desktop utility built to resolve classic Windows network printing errors (0x00000709, 0x0000011b, 0x00000bc4, Canon Spooler deadlocks, Point & Print blocks, etc.).",
+    "preCheckTitle": "Pre-Execution Verification Notice",
+    "preCheck1": "It is strongly recommended to create a System Restore Point or backup the Registry before applying deep system modifications (such as Spooler DLL replacements).",
+    "preCheck2": "Double-check the server IP address/hostname and physical network connection before diagnosing software issues.",
+    "preCheck3": "Carefully review the technical explanation and execution script in the 'Details' view prior to clicking 'Fix'.",
+    "disclaimerTitle": "Disclaimer of Warranty & Liability",
+    "disclaimerP1": "PrintLAN Fixer directly modifies Windows Registry settings, Print Spooler service configurations, system DLL files, and Windows Firewall rules.",
+    "disclaimerP2": "This tool is provided 'AS-IS' for technical community and IT Helpdesk support without warranty of any kind. The author assumes NO liability for any system disruption, software conflicts, or data loss arising from using this software.",
+    "disclaimerP3": "Users must possess basic Windows networking knowledge and take full responsibility when running on production or critical print servers.",
+    "feedbackTitle": "Feedback & Bug Reports",
+    "feedbackDesc": "All bug reports, feature suggestions, or requests for supporting custom printer errors are welcomed on the project's GitHub Issues page.",
+    "openGithubIssues": "Open GitHub Issues",
+    "githubRepo": "GitHub Repository",
+    "feedbackGuideTitle": "Tips for submitting an issue:",
+    "feedbackGuide1": "Specify your Windows OS build (e.g., Windows 11 24H2 or Windows 10 22H2).",
+    "feedbackGuide2": "Include the exact error code (0x00000709, 0x0000011b...) and printer model (Canon LBP 2900, HP LaserJet, Brother...).",
+    "feedbackGuide3": "Clarify the machine role (Server host with USB cable or Client workstation over LAN).",
+    "feedbackGuide4": "Attach logs.",
+    "donateTitle": "Support the Author (Donate)",
+    "donateDesc": "If PrintLAN Fixer saved you time and resolved your printing headaches, a cup of coffee would be greatly appreciated to keep this project actively maintained! ☕",
+    "qrTitle": "Scan QR Code to Support"
+  }
+}

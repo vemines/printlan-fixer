@@ -1,0 +1,743 @@
+{
+  "appTitle": "PrintLAN Fixer",
+  "appSubtitleLine1": "Chẩn đoán & Khắc phục toàn bộ lỗi chia sẻ máy in qua mạng LAN",
+  "statusModalTitle": "Trạng Thái & Dịch Vụ Máy In",
+  "statusModalDesc": "Tình trạng Service và Port:",
+  "spoolerService": "Print Spooler (spoolsv.exe)",
+  "firewallService": "Windows Firewall (MpsSvc)",
+  "portsService": "Cổng Mạng RPC / SMB (TCP 135 / 445)",
+  "restartSpooler": "Restart Spooler",
+  "enableFirewall": "Bật Firewall",
+  "testPorts": "Kiểm Tra Port",
+  "close": "Đóng",
+  "searchPlaceholder": "Tìm mã lỗi (011b, 709, bc4...) hoặc tên lỗi...",
+  "log": "Log",
+  "tabServer": "MÁY CHỦ",
+  "tabClient": "MÁY TRẠM",
+  "tabTools": "TOOLS",
+  "tabServerSub": "Máy cắm cáp & chia sẻ máy in",
+  "tabClientSub": "Máy kết nối qua mạng LAN",
+  "tabToolsSub": "Cứu hộ Spooler, Mạng, Driver & Tiện ích",
+  "fixBtn": "FIX",
+  "fixing": "Đang sửa...",
+  "fixed": "Đã xử lý",
+  "detail": "Chi tiết",
+  "copyCmd": "Copy Lệnh",
+  "copied": "Đã chép",
+  "noErrorsFound": "Không tìm thấy mã lỗi phù hợp",
+  "clearSearch": "Xóa tìm kiếm",
+  "logTitle": "LOG CONSOLE",
+  "logReady": "Sẵn sàng kiểm tra và xử lý lỗi",
+  "rootCause": "Nguyên Nhân Kỹ Thuật Chuyên Sâu",
+  "fixProcedure": "Quy Trình Khắc Phục Chuẩn",
+  "regKeys": "Khóa Registry Liên Quan",
+  "execScript": "Script Lệnh Thực Thi",
+  "riskNote": "Lưu ý bảo mật",
+  "fixThisError": "Fix",
+  "credModalTitle": "Danh Sách Network Credential Đã Lưu",
+  "credModalDesc": "Các tài khoản lưu trữ truy cập máy chủ in qua mạng LAN:",
+  "addCred": "Thêm Credential",
+  "pingCheck": "Ping & Kiểm Tra",
+  "save": "Lưu",
+  "networkMessages": {
+    "smbOpen": "Cổng SMB (TCP 445) mở - Máy chủ sẵn sàng kết nối in!",
+    "rpcOpen": "Cổng RPC (TCP 135) mở - Kết nối mạng LAN tốt!",
+    "icmpPing": "Máy chủ phản hồi Ping ICMP (lưu ý: cổng chia sẻ 445/135 có thể đang bị chặn).",
+    "cannotReach": "Không thể kết nối (Máy chủ tắt, đổi IP hoặc sai tên máy).",
+    "invalidHost": "Tên máy chủ hoặc địa chỉ IP không hợp lệ."
+  },
+  "printerModal": {
+    "title": "Danh Sách Máy In Trên Thiết Bị",
+    "desc": "Xem trạng thái, tài liệu đang in, in test hoặc cấu hình chia sẻ",
+    "search": "Tìm máy in...",
+    "printTest": "In Test",
+    "printTestDesc": "In trang thử nghiệm",
+    "preferences": "Preferences",
+    "preferencesDesc": "Cấu hình chức năng máy in",
+    "properties": "Properties",
+    "propertiesDesc": "Mở Printer Properties",
+    "setDefault": "Đặt Mặc Định",
+    "isDefault": "Mặc Định",
+    "setDefaultDesc": "Đặt làm máy in mặc định",
+    "clearQueue": "Xóa Hàng Đợi",
+    "clearQueueDesc": "Xóa toàn bộ tài liệu đang chờ hoặc kẹt trong hàng đợi",
+    "viewQueue": "Xem Hàng Đợi",
+    "viewQueueDesc": "Mở cửa sổ Hàng Đợi In của Windows khi cần kiểm tra sự cố",
+    "removeDevice": "Xóa Thiết Bị",
+    "removeDeviceDesc": "Gỡ bỏ thiết bị máy in này khỏi Windows",
+    "removeConfirm": "Bạn có chắc chắn muốn gỡ bỏ máy in \"{name}\" khỏi Windows không?",
+    "manageAdvancedSharing": "Manage advanced sharing settings",
+    "open": "Mở",
+    "sharingConfig": "Cấu Hình Chia Sẻ Máy In Này Qua Mạng LAN",
+    "allowSharing": "Cho phép chia sẻ máy in này (Share this printer)",
+    "shareName": "Tên chia sẻ hiển thị trên mạng (Share Name):",
+    "shareNameTip": "Mẹo: Nên đặt tên ngắn gọn, không dấu tiếng Việt, không chứa khoảng trắng để tránh lỗi 0x00000709 khi máy con kết nối.",
+    "saveSettings": "Lưu Cấu Hình",
+    "noticeTestSent": "Đã gửi lệnh in trang test tới \"{name}\"",
+    "noticePrefOpened": "Mở Printer Preferences cho \"{name}\"",
+    "noticePropOpened": "Mở Printer Properties cho \"{name}\"",
+    "noticeQueueOpened": "Mở cửa sổ hàng đợi in Windows",
+    "noticeQueueCleared": "Đã xóa sạch hàng đợi in của \"{name}\"",
+    "noticeDefaultSet": "Đã đặt \"{name}\" làm máy in mặc định",
+    "noticeDeviceRemoved": "Đã xóa thiết bị máy in \"{name}\"",
+    "noticeShareEnabled": "Đã bật chia sẻ máy in: \\\\%COMPUTERNAME%\\{shareName}",
+    "noticeShareDisabled": "Đã tắt chia sẻ máy in này",
+    "noticeAdvSharingOpened": "Mở Cài đặt chia sẻ nâng cao của Windows",
+    "addLanPrinter": "Thêm Máy In LAN",
+    "addLanModalTitle": "Thêm Máy In Chia Sẻ Qua Mạng LAN",
+    "addLanModalDesc": "Kết nối tới máy in mạng thông qua IP hoặc Tên máy tính và tài khoản",
+    "hostFieldLabel": "Tên Máy Chủ hoặc Địa Chỉ IP (PC Name / IP)",
+    "hostPlaceholder": "Ví dụ: 192.168.1.100 hoặc PRINT-SERVER",
+    "printerFieldLabel": "Tên Máy In Chia Sẻ (Share Name)",
+    "printerPlaceholder": "Ví dụ: Canon2900 hoặc HP_M404dn",
+    "userFieldLabel": "Tên Đăng Nhập (Tùy chọn)",
+    "userPlaceholder": "Ví dụ: Administrator hoặc để trống",
+    "passFieldLabel": "Mật Khẩu (Tùy chọn)",
+    "passPlaceholder": "••••••••",
+    "connectBtn": "Thêm Máy In",
+    "connecting": "Đang kết nối...",
+    "cancel": "Hủy",
+    "noticeLanPrinterAdded": "Đã thêm máy in LAN: \\\\{host}\\{printer}",
+    "fillRequiredFields": "Vui lòng nhập cả Tên máy chủ/IP và Tên máy in chia sẻ",
+    "badgeSharing": "Sharing",
+    "badgeShared": "Shared",
+    "lanInfoTitle": "Thông Tin Máy In Mạng LAN",
+    "lanServerHost": "Máy chủ lưu trữ (Host / IP):",
+    "lanShareName": "Tên chia sẻ (Share Name):",
+    "lanUncPath": "Đường dẫn mạng (UNC Path):",
+    "lanNotice": "Máy in này được kết nối từ máy chủ qua mạng LAN. Cấu hình chia sẻ được quản lý trên máy chủ.",
+    "dialogOk": "Đồng ý",
+    "dialogCancel": "Hủy",
+    "dialogNotice": "Thông Báo",
+    "dialogConfirm": "Xác Nhận",
+    "confirmClearQueueTitle": "Xóa Hàng Đợi In",
+    "confirmClearQueueMsg": "Bạn có chắc chắn muốn xóa toàn bộ lệnh in đang chờ của \"{name}\" không?",
+    "confirmRemoveTitle": "Gỡ Bỏ Thiết Bị Máy In",
+    "confirmRemoveMsg": "Bạn có chắc chắn muốn gỡ bỏ máy in \"{name}\" khỏi Windows không?",
+    "testPageErrorTitle": "Lỗi In Trang Thử Nghiệm",
+    "testPageErrorMsg": "Không thể in Test Page cho máy in \"{name}\". Chi tiết: {detail}",
+    "prefErrorTitle": "Lỗi Mở Tùy Chọn In (Preferences)",
+    "prefErrorMsg": "Không thể mở Printing Preferences: {detail}",
+    "propErrorTitle": "Lỗi Mở Thuộc Tính Máy In (Properties)",
+    "propErrorMsg": "Không thể mở Printer Properties: {detail}",
+    "queueErrorTitle": "Lỗi Mở Hàng Đợi In",
+    "queueErrorMsg": "Không thể mở hàng đợi in cho \"{name}\": {detail}",
+    "setDefaultErrorTitle": "Lỗi Đặt Máy In Mặc Định",
+    "setDefaultErrorMsg": "Không thể đặt \"{name}\" làm máy in mặc định. Chi tiết: {detail}",
+    "removeErrorTitle": "Lỗi Xóa Máy In",
+    "removeErrorMsg": "Không thể xóa máy in \"{name}\". Chi tiết: {detail}",
+    "netConnectErrorTitle": "Không Thể Kết Nối Máy Chủ LAN",
+    "netConnectErrorMsg": "Không thể kết nối mạng tới máy chủ \"{host}\".\n\nChi tiết: {detail}\n\nVui lòng kiểm tra:\n• Địa chỉ IP hoặc tên máy chủ \"{host}\" có chính xác không.\n• Máy chủ có đang mở và kết nối cùng mạng LAN/Wi-Fi không.\n• Tường lửa trên máy chủ có mở cổng chia sẻ (TCP 445 / 135) không.",
+    "errPrinterNotFound": "Máy chủ \"{host}\" phản hồi, nhưng không tìm thấy máy in có tên chia sẻ \"{printer}\". Vui lòng kiểm tra lại chính xác tên Share Name trên máy chủ.",
+    "errAccessDenied": "Truy cập bị từ chối (Access is denied). Vui lòng nhập tài khoản và mật khẩu máy chủ hoặc kiểm tra quyền chia sẻ trong Printer Properties > Security.",
+    "errSystemNotFound": "Hệ thống Windows không tìm thấy máy in được thêm vào.",
+    "addLanErrorTitle": "Không Thể Thêm Máy In LAN",
+    "addLanErrorMsg": "Không thể thêm máy in \"{path}\".\n\nNguyên nhân: {detail}",
+    "scanPrintersTitle": "Quét lại máy in",
+    "scanningPrintersText": "Đang quét danh sách máy in từ hệ thống...",
+    "queryingSpoolerText": "Truy vấn Spooler & WMI Device",
+    "emptyListNoPrinters": "Chưa có máy in nào",
+    "emptyListNoMatching": "Không tìm thấy máy in",
+    "emptyListHelpNoPrinters": "Bấm nút \"+ LAN Printer\" phía trên để kết nối máy in.",
+    "emptyListHelpNoMatching": "Thử tìm với từ khóa khác.",
+    "noPrinterSelectedTitle": "Chưa có máy in nào được chọn",
+    "noPrinterSelectedDesc": "Danh sách máy in đang trống. Nhấn + LAN Printer ở góc trái để kết nối máy in mạng LAN."
+  },
+  "utilityDrawer": {
+    "customParams": "Tham Số Tùy Biến (Tự Động Điền Vào Script)",
+    "serverIpLabel": "IP hoặc Tên Máy Chủ In:",
+    "printerNameLabel": "Tên Máy In Cần Xử Lý:",
+    "riskNotice": "Thao tác nâng cao có thể ảnh hưởng đến driver hiện tại. Khuyến khích khởi động lại máy sau khi thực hiện."
+  },
+  "fix709Modal": {
+    "title": "Chọn Phương Án Sửa Lỗi 709 (Máy Chủ Win 11)",
+    "description": "Máy chủ cắm máy in cần mở quyền kết nối RPC/Named Pipes cho các máy trạm Win 10. Vui lòng chọn 1 trong 2 phương án bên dưới:",
+    "option1Title": "Phương án 1: Thay thế 3 file DLL Spooler tương thích",
+    "advantageLabel": "Ưu điểm:",
+    "option1Advantage": "Chỉ làm 1 lần trên máy chủ, tất cả các máy con Win 10 kết nối vào đều in được ngay, không cần chỉnh máy con.",
+    "backupPathLabel": "Đường dẫn backup:",
+    "option2Title": "Phương án 2: Cập nhật Registry Máy Chủ (RpcProtocols = 7)",
+    "option2Advantage": "An toàn tuyệt đối, không thay đổi bất kỳ file hệ thống của Windows.",
+    "option2Note": "Lưu ý: Mỗi máy con Win 10 cần kết nối phải chạy script bên máy trạm.",
+    "inspectScript": "Xem lệnh Script ({option})",
+    "option1Label": "Phương án 1",
+    "option2Label": "Phương án 2",
+    "collapse": "Thu gọn",
+    "expand": "Xem chi tiết",
+    "copyScript": "Sao chép lệnh",
+    "copied": "Đã sao chép",
+    "restoreBackup": "Khôi Phục 3 File Gốc",
+    "restoreBackupTooltip": "Khôi phục 3 file gốc từ thư mục backup_dll",
+    "cancel": "Hủy",
+    "apply": "Áp Dụng Phương Án"
+  },
+  "header": {
+    "printerListTitle": "Xem danh sách máy in & hàng đợi in",
+    "checkingTitle": "Đang kiểm tra dịch vụ hệ thống...",
+    "checkingText": "Đang quét...",
+    "healthyTitle": "Dịch vụ in & Cổng kết nối đang hoạt động tốt",
+    "healthyText": "Sẵn sàng",
+    "degradedTitle": "Có dịch vụ in bị dừng hoặc cổng bị chặn",
+    "degradedText": "Cần xử lý",
+    "toggleLog": "Mở hoặc thu gọn Log",
+    "switchLight": "Chuyển sang chế độ Sáng",
+    "switchDark": "Chuyển sang chế độ Tối",
+    "aboutTitle": "Thông tin ứng dụng, tác giả & hỗ trợ"
+  },
+  "statusModal": {
+    "title": "Trạng Thái Dịch Vụ Hệ Thống",
+    "desc": "Trạng thái các dịch vụ cốt lõi và cổng giao tiếp máy in của Windows:",
+    "refreshTitle": "Quét lại trạng thái",
+    "spoolerRunning": "Đang chạy (Running)",
+    "spoolerStopped": "Đã dừng / Gặp sự cố",
+    "startSpooler": "Bật Spooler",
+    "firewallEnabled": "Cho phép chia sẻ qua mạng LAN",
+    "firewallDisabled": "Quy tắc chia sẻ bị tắt"
+  },
+  "detailDrawer": {
+    "serverRole": "Máy Chủ (Server)",
+    "clientRole": "Máy Trạm (Client)",
+    "bothRole": "Cả 2 Máy",
+    "banner709Title": "Máy Chủ Win 11 có 2 phương án sửa lỗi 709",
+    "banner709Desc": "Phương án 1 (Thay 3 file DLL Spooler) hoặc Phương án 2 (Cập nhật Registry RpcProtocols = 7)",
+    "chooseMethod": "Mở Hộp Thoại Chọn"
+  },
+  "credentialModal": {
+    "title": "Thông Tin Đăng Nhập Mạng LAN Đã Lưu",
+    "desc": "Các máy chủ chia sẻ máy in và tài khoản truy cập được lưu trong Windows:",
+    "refreshTitle": "Làm mới danh sách",
+    "emptyTitle": "Chưa có thông tin đăng nhập nào",
+    "emptyDesc": "Nhấn \"+ Thêm Tài Khoản\" bên dưới để lưu thông tin mạng LAN.",
+    "deleteTitle": "Xóa credential này",
+    "countText": "{count} mục đăng nhập mạng LAN",
+    "connectionFailed": "Không thể kết nối",
+    "addModalTitle": "Thêm Tài Khoản Mạng LAN",
+    "serverFieldLabel": "Địa chỉ IP hoặc Tên Máy Chủ",
+    "serverPlaceholder": "Ví dụ: 192.168.1.100 hoặc PRINT-SERVER",
+    "userFieldLabel": "Tên Người Dùng (Username)",
+    "userPlaceholder": "Ví dụ: Administrator hoặc user1",
+    "passFieldLabel": "Mật Khẩu (Password)",
+    "passPlaceholder": "Để trống nếu không có mật khẩu",
+    "note": "Thông tin sẽ được ghi vào Windows Credential Manager để tự động xác thực khi in qua LAN.",
+    "saveBtn": "Lưu Thông Tin"
+  },
+  "appLogs": {
+    "startRepair": "BẮT ĐẦU XỬ LÝ LỖI",
+    "appliedFix": "Đã áp dụng cấu hình sửa lỗi cho",
+    "completedTool": "Đã hoàn tất tiện ích:"
+  },
+  "errors": {
+    "err-bc4": {
+      "title": "Không tìm thấy máy in (Win 11 RPC Block)",
+      "desc": "Windows không tìm thấy máy in khi duyệt chia sẻ trên Windows 11 22H2/23H2/24H2.",
+      "rootCause": "Bản cập nhật Windows 11 thay đổi chính sách RPC mặc định sang \"RPC over TCP\", chặn kết nối RPC over Named Pipes truyền thống qua port 445 SMB.",
+      "fixSteps": [
+        "Bật chính sách cho phép RPC over Named Pipes trong Registry máy trạm",
+        "Cho phép fallback xác thực NTLM khi kết nối máy in qua IP (ForceKerberosForRpc = 0)",
+        "Khởi động lại dịch vụ Print Spooler",
+        "Kết nối lại máy in qua đường dẫn IP: \\\\IP_MAY_CHU\\TEN_SHARE"
+      ]
+    },
+    "err-bcb": {
+      "title": "Bị chặn tải Driver máy in chia sẻ",
+      "desc": "Máy trạm không thể tự tải và cài đặt driver từ máy chủ do chính sách bảo mật Point and Print.",
+      "rootCause": "Sau bản cập nhật bảo mật PrintNightmare của Microsoft, tài khoản người dùng thông thường (Standard User) không được phép tự nạp driver từ xa nếu không có quyền Administrator.",
+      "fixSteps": [
+        "Gỡ bỏ giới hạn cài đặt Driver chỉ dành cho Administrator trong Registry",
+        "Tắt cảnh báo nhắc quyền Elevation khi kết nối máy in Point and Print",
+        "Khởi động lại Spooler và kết nối lại máy in"
+      ],
+      "riskNote": "Cho phép cài đặt driver từ máy chủ mạng LAN mà không đòi hỏi quyền Admin (hạ nhẹ tiêu chuẩn Point and Print)."
+    },
+    "err-bc5": {
+      "title": "Driver máy in bị chặn cài đặt",
+      "desc": "Driver chia sẻ từ máy chủ bị Windows chặn vì chữ ký số không hợp lệ hoặc nằm trong danh sách đen.",
+      "rootCause": "Driver cũ hoặc driver mod (như driver Canon LBP 2900 trên Win 64bit) thiếu chứng chỉ WHQL hợp lệ, hoặc máy trạm bật chính sách cấm driver không ký số.",
+      "fixSteps": [
+        "Tải bộ driver chính thức từ hãng và cài cục bộ (Local) trên máy trạm trước",
+        "Tắt ràng buộc chữ ký số driver tạm thời nếu dùng driver mod",
+        "Kết nối lại máy in chia sẻ sau khi driver đã có sẵn trên máy trạm"
+      ]
+    },
+    "err-bc6": {
+      "title": "Cảnh báo bảo mật driver ngăn cản cài đặt",
+      "desc": "Windows hiện hộp thoại cảnh báo nguy cơ bảo mật và hủy quá trình map máy in.",
+      "rootCause": "Chính sách bảo mật Point and Print yêu cầu người dùng xác nhận nâng cao quyền, nhưng tiến trình chạy ngầm làm treo kết nối.",
+      "fixSteps": [
+        "Cấu hình NoWarningNoElevationOnInstall = 1",
+        "Cấu hình UpdatePromptSettings = 2 để bỏ qua prompt"
+      ]
+    },
+    "err-bc7": {
+      "title": "Gói Driver đang bận sử dụng",
+      "desc": "Không thể cập nhật hoặc ghi đè driver do đang có tiến trình spooler nắm giữ file.",
+      "rootCause": "Một ứng dụng đang mở cổng in hoặc print queue có tài liệu kẹt đang khóa file DLL của driver.",
+      "fixSteps": [
+        "Dừng hoàn toàn Print Spooler và tiến trình spoolsv.exe",
+        "Xóa sạch các tệp tạm trong thư mục C:\\Windows\\System32\\spool\\PRINTERS",
+        "Cập nhật lại driver và khởi động lại Spooler"
+      ]
+    },
+    "err-bc8": {
+      "title": "Thiếu gói Core Driver lõi của Windows",
+      "desc": "Máy trạm thiếu các file driver nền tảng (ntprint.inf / mscms.dll) để nạp driver máy in.",
+      "rootCause": "Bản cài đặt Windows Lite (tinh giảm) hoặc Windows cập nhật thiếu tính năng Internet Printing Client, thiếu file mscms.dll trong thư mục spool drivers.",
+      "fixSteps": [
+        "Kích hoạt tính năng Internet Printing Client qua DISM",
+        "Sao chép mscms.dll từ System32 vào thư mục drivers x64\\3 và w32x86\\3",
+        "Khởi động lại Spooler"
+      ]
+    },
+    "err-bcd": {
+      "title": "Chặn quyền cài Driver Point & Print (Quyền Người Dùng)",
+      "desc": "Tài khoản người dùng thông thường bị chặn cài driver từ xa do chính sách bảo mật Point and Print.",
+      "rootCause": "Bản vá bảo mật của Microsoft siết chặt yêu cầu quyền Administrator khi cài driver qua Point & Print từ máy chủ chia sẻ.",
+      "fixSteps": [
+        "Cấu hình RestrictDriverInstallationToAdministrators = 0 trong Registry",
+        "Cấu hình bỏ qua xác thực danh sách máy chủ Point and Print",
+        "Tắt nhắc cảnh báo nâng quyền UAC khi cài đặt driver máy in",
+        "Khởi động lại dịch vụ Print Spooler"
+      ]
+    },
+    "err-bce": {
+      "title": "Tên chia sẻ máy in không hợp lệ",
+      "desc": "Tên share máy in chứa ký tự đặc biệt, dấu tiếng Việt hoặc quá dài khiến máy trạm không kết nối được.",
+      "rootCause": "Tên chia sẻ vượt quá giới hạn 31 ký tự hoặc có khoảng trắng, dấu tiếng Việt làm giao thức SMB/RPC bị lỗi phân giải.",
+      "fixSteps": [
+        "Vào Máy Chủ > Printer Properties > Tab Sharing",
+        "Đổi tên Share Name thành ký tự liền, không dấu, tối đa 12 ký tự (Ví dụ: HP_Laser, Canon2900)"
+      ]
+    },
+    "err-11b": {
+      "title": "Lỗi bảo mật RPC PrintNightmare (KB5005565)",
+      "desc": "Lỗi chia sẻ mạng LAN kinh điển sau các bản vá KB của Microsoft (KB5005565, KB5005568).",
+      "rootCause": "Bản vá PrintNightmare buộc dịch vụ Print Spooler phải thực thi mã hóa mức độ RPC Privacy (RpcAuthnLevelPrivacyEnabled = 1). Nếu máy trạm chưa cập nhật đồng bộ, máy chủ sẽ từ chối kết nối.",
+      "fixSteps": [
+        "Chạy cấu hình RpcAuthnLevelPrivacyEnabled = 0 trên máy chủ (Server)",
+        "Khởi động lại Spooler trên máy chủ",
+        "Nếu vẫn bị, cấu hình tiếp trên máy trạm"
+      ],
+      "riskNote": "Hạ mức mã hóa RPC Privacy. Được cộng đồng kỹ thuật viên sử dụng rộng rãi và an toàn trong mạng nội bộ tin cậy."
+    },
+    "err-709": {
+      "title": "Không thể kết nối máy in (Lỗi 709 - Phía Máy Trạm)",
+      "desc": "Máy trạm Win 10/11 báo lỗi 0x00000709 khi kết nối tới máy in chia sẻ qua mạng LAN.",
+      "rootCause": "Xảy ra khi máy trạm kết nối tới máy in qua đường dẫn chia sẻ mạng (\\\\SERVER\\Printer). Trên Windows 11/10, Spooler mặc định từ chối RPC over Named Pipes và yêu cầu xác thực Kerberos qua IP thất bại.",
+      "fixSteps": [
+        "Bật chính sách cho phép RPC over Named Pipes (RpcUseNamedPipeProtocol = 1)",
+        "Tắt ép buộc Kerberos cho kết nối RPC qua mạng LAN (ForceKerberosForRpc = 0)",
+        "Kích hoạt chế độ Legacy Default Printer Mode (tránh lỗi Windows tự đổi máy in)",
+        "Khởi động lại Spooler và kết nối lại máy in"
+      ]
+    },
+    "err-709-server": {
+      "title": "Lỗi chia sẻ máy in Win 11 (Lỗi 709 - Phía Máy Chủ)",
+      "desc": "Máy chủ Win 11 cắm máy in chặn máy con Win 10 in. Cung cấp 2 phương án: Thay 3 file DLL Spooler hoặc cấu hình Registry.",
+      "rootCause": "Bản cập nhật Windows 11 thay đổi Spooler RPC listener mặc định sang RPC over TCP và chặn Named Pipes, khiến các máy con Windows 10 không thể kết nối tới máy in chia sẻ.",
+      "fixSteps": [
+        "Phương án 1 (Thay 3 file DLL Spooler): Chỉ làm 1 lần trên máy chủ, tự động backup vào %ProgramData%\\PrintLANFixer\\backup_dll, máy con Win 10 in được ngay không cần chỉnh.",
+        "Phương án 2 (Cập nhật Registry RpcProtocols = 7): An toàn tuyệt đối, không thay đổi bất kỳ file hệ thống của Windows. Lưu ý: Mỗi máy con Win 10 cần kết nối phải chạy script bên máy trạm.",
+        "Khôi phục 3 file gốc từ thư mục backup bất cứ lúc nào."
+      ]
+    },
+    "err-07c": {
+      "title": "Không thỏa hiệp giao thức RPC Spooler",
+      "desc": "Lỗi thường gặp khi kết nối từ máy trạm Win 10/11 đến máy chủ sau các đợt update Windows.",
+      "rootCause": "Spooler giữa hai máy không đạt được thỏa thuận mức giao thức bảo mật RPC hoặc thiếu thư viện mscms.dll.",
+      "fixSteps": [
+        "Cấu hình đồng bộ RPC over Named Pipes trên máy trạm",
+        "Chép bổ sung mscms.dll vào spool driver",
+        "Restart Print Spooler"
+      ]
+    },
+    "err-6ba": {
+      "title": "Dịch vụ RPC Server không khả dụng",
+      "desc": "Báo lỗi \"The RPC server is unavailable\" khi thêm máy in hoặc gửi lệnh in.",
+      "rootCause": "Dịch vụ Print Spooler hoặc RPC Endpoint Mapper bị tắt, hoặc Firewall máy chủ chặn các cổng kết nối RPC (Port 135) và SMB (Port 445).",
+      "fixSteps": [
+        "Khởi động lại các dịch vụ cốt lõi: Spooler, RpcSs, RpcEptMapper",
+        "Mở Windows Firewall cho nhóm File and Printer Sharing",
+        "Kiểm tra thông mạng giữa 2 máy"
+      ]
+    },
+    "err-6d9": {
+      "title": "Không có Endpoint - Do tắt Windows Firewall",
+      "desc": "Thông báo \"There are no more endpoints available from the endpoint mapper\".",
+      "rootCause": "Dịch vụ Windows Defender Firewall (MpsSvc) bị tắt hoàn toàn. Windows Spooler bắt buộc dịch vụ Firewall phải chạy để khởi tạo RPC Endpoint Mapper cho chia sẻ máy in.",
+      "fixSteps": [
+        "Bật lại dịch vụ Windows Defender Firewall (MpsSvc) sang chế độ Automatic",
+        "Mở quyền File and Printer Sharing trong Firewall",
+        "Khởi động lại Spooler"
+      ]
+    },
+    "err-6be": {
+      "title": "Cuộc gọi RPC thất bại (Spooler Crash)",
+      "desc": "Đang kết nối thì bị ngắt kết nối đột ngột với mã lỗi 0x000006be.",
+      "rootCause": "Dịch vụ Print Spooler (spoolsv.exe) trên máy chủ bị sập (crash) đột ngột do gặp file in lỗi hoặc driver bị dump bộ nhớ.",
+      "fixSteps": [
+        "Kill tiến trình spoolsv.exe đang treo",
+        "Dọn sạch toàn bộ file rác kẹt trong thư mục Spool Printers",
+        "Khởi động lại Spooler"
+      ]
+    },
+    "err-4005": {
+      "title": "Truy cập bị từ chối / Group Policy chặn",
+      "desc": "Lỗi không xác định khi kết nối máy in Point and Print qua mạng LAN.",
+      "rootCause": "Group Policy của máy trạm chặn việc thêm máy in hoặc thiếu quyền xác thực mạng máy chủ.",
+      "fixSteps": [
+        "Gỡ bỏ giới hạn Point and Print trong Policies",
+        "Thêm thông tin Credential máy chủ qua cmdkey",
+        "Restart Spooler"
+      ]
+    },
+    "err-005": {
+      "title": "Access is denied (Bị từ chối truy cập)",
+      "desc": "Không có quyền kết nối hoặc nạp driver từ máy in chia sẻ.",
+      "rootCause": "Tài khoản kết nối từ máy trạm không có quyền \"Print\" trong Printer Properties > Security của máy chủ, hoặc máy trạm chưa xác thực SMB.",
+      "fixSteps": [
+        "Trên máy chủ: Cấp quyền Print cho tài khoản Everyone / Guest",
+        "Trên máy trạm: Mở File Explorer gõ \\\\IP_MAY_CHU để đăng nhập xác thực",
+        "Lưu thông tin đăng nhập vào Windows Credential"
+      ]
+    },
+    "err-52e": {
+      "title": "Sai tài khoản hoặc mật khẩu máy chủ",
+      "desc": "Thông báo: Logon failure: unknown user name or bad password.",
+      "rootCause": "Máy trạm gửi thông tin đăng nhập sai hoặc máy chủ bật Password Protected Sharing mà máy trạm chưa lưu tài khoản.",
+      "fixSteps": [
+        "Bật AllowInsecureGuestAuth = 1 nếu dùng tài khoản khách",
+        "Thêm tài khoản người dùng máy chủ bằng lệnh cmdkey /add",
+        "Hoặc tắt Password protected sharing trên máy chủ"
+      ]
+    },
+    "err-35": {
+      "title": "Không tìm thấy đường dẫn mạng",
+      "desc": "Thông báo: The network path was not found khi vào \\\\MAYCHU.",
+      "rootCause": "Máy trạm và máy chủ không thông mạng LAN, hoặc tắt Network Discovery, hoặc dịch vụ LanmanWorkstation/LanmanServer bị dừng.",
+      "fixSteps": [
+        "Bật dịch vụ LanmanWorkstation và LanmanServer",
+        "Bật Network Discovery trong tường lửa",
+        "Khởi động các dịch vụ fdPHost, FDResPub, SSDPSRV, upnphost",
+        "Dùng địa chỉ IP thay vì tên máy tính"
+      ]
+    },
+    "err-040": {
+      "title": "Tên mạng không còn khả dụng (Mất kết nối SMB)",
+      "desc": "The specified network name is no longer available.",
+      "rootCause": "Kết nối mạng bị đứt giữa chừng, máy chủ sleep, hoặc cấu hình SMB Dialect không tương thích.",
+      "fixSteps": [
+        "Tắt chế độ Sleep trên máy chủ chia sẻ máy in",
+        "Mở đầy đủ rule tường lửa cho File and Printer Sharing",
+        "Restart Print Spooler và LanmanServer"
+      ]
+    },
+    "err-3e3": {
+      "title": "Lỗi mạo danh token xác thực (Impersonation)",
+      "desc": "Không thể mạo danh tài khoản bảo mật khi kết nối máy in.",
+      "rootCause": "Cấu hình ForceGuest = 1 trong LSA ngăn cản việc truyền thông tin người dùng thực đến máy chủ.",
+      "fixSteps": [
+        "Đặt lại forceguest = 0 trong HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa",
+        "Restart Spooler"
+      ]
+    },
+    "err-07e": {
+      "title": "Thiếu module mscms.dll của driver",
+      "desc": "Thông báo: The specified module could not be found.",
+      "rootCause": "Thiếu file thư viện quản lý màu mscms.dll trong thư mục drivers x64\\3 của máy trạm khi nạp driver từ xa.",
+      "fixSteps": [
+        "Copy file mscms.dll từ System32 sang spool\\drivers\\x64\\3",
+        "Dọn sạch hàng đợi spooler và restart"
+      ]
+    },
+    "err-057": {
+      "title": "Xung đột driver 32-bit và 64-bit",
+      "desc": "The parameter is incorrect khi cài driver máy in chia sẻ.",
+      "rootCause": "Máy chủ và máy trạm khác kiến trúc CPU (ví dụ máy chủ chạy Win 64bit nhưng máy trạm chạy Win 32bit) và chưa cài Additional Drivers.",
+      "fixSteps": [
+        "Mở máy chủ > Printer Properties > Tab Sharing > Bấm \"Additional Drivers\"",
+        "Tích chọn cả x86 (32-bit) và x64 (64-bit) để nạp sẵn cả hai phiên bản"
+      ]
+    },
+    "err-bbb": {
+      "title": "Cổng máy in không xác định hoặc bị đổi IP",
+      "desc": "The specified port is unknown.",
+      "rootCause": "Máy in mạng đổi địa chỉ IP hoặc cổng TCP/IP ảo bị lỗi treo registry.",
+      "fixSteps": [
+        "Kiểm tra lại IP tĩnh của máy in",
+        "Xóa các cổng TCP/IP rác bị treo trong Registry",
+        "Tạo lại cổng Standard TCP/IP Port mới"
+      ]
+    },
+    "err-canon-comm": {
+      "title": "Lỗi Communication Error (Canon LBP 2900 / 3300)",
+      "desc": "Lỗi kinh điển máy in Canon 2900 báo không thể giao tiếp hoặc mất kết nối USB.",
+      "rootCause": "Xung đột cổng mạng ảo CNBJNP và Registry USB Monitor bị kẹt lệnh in cũ sau khi rút cắm cáp hoặc chia sẻ qua mạng LAN.",
+      "fixSteps": [
+        "Dừng Print Spooler và xóa sạch PRINTERS queue",
+        "Xóa khóa Registry USB Monitor",
+        "Xóa các khóa cổng ảo CNBJNP trong Monitors",
+        "Cắm lại cáp USB và in thử"
+      ]
+    },
+    "err-wpp-win11": {
+      "title": "Windows Protected Print chặn driver (Win 11 24H2)",
+      "desc": "Windows 11 24H2 chặn triệt để mọi driver bên thứ 3 và vô hiệu hóa share máy in cũ.",
+      "rootCause": "Tính năng Windows Protected Print Mode (WPP) ép buộc toàn bộ hệ điều hành chỉ dùng driver Mopria/IPP chuẩn, chặn hoàn toàn giao thức chia sẻ máy in Point & Print truyền thống.",
+      "fixSteps": [
+        "Vào Settings > Bluetooth & Devices > Printers & Scanners",
+        "Tìm Windows Protected Print Mode và tắt tính năng này",
+        "Hoặc chỉnh Group Policy / Registry để vô hiệu hóa WPP",
+        "Restart Print Spooler"
+      ]
+    },
+    "err-spooler-crash": {
+      "title": "Print Spooler sập liên tục khi khởi động",
+      "desc": "Dịch vụ Print Spooler tự dừng sau vài giây, không thể giữ trạng thái Running.",
+      "rootCause": "Có file driver bên thứ 3 bị hỏng hoặc DLL xung đột nằm trong thư mục drivers x64 hoặc W32X86.",
+      "fixSteps": [
+        "Dừng dịch vụ Print Spooler",
+        "Đổi tên thư mục C:\\Windows\\System32\\spool\\drivers\\x64 thành x64.old",
+        "Đổi tên thư mục W32X86 thành W32X86.old",
+        "Khởi động lại Spooler (Windows sẽ tự tạo lại thư mục sạch)"
+      ]
+    }
+  },
+  "utilities": {
+    "util-restart-spooler": {
+      "title": "Khởi Động Lại Print Spooler",
+      "desc": "Dừng triệt để spoolsv.exe đang treo và kích hoạt lại dịch vụ Print Spooler an toàn.",
+      "actionType": "fix",
+      "actionLabel": "Khởi Động Lại",
+      "stepTitles": [
+        "Dừng dịch vụ Spooler",
+        "Cưỡng chế đóng tiến trình",
+        "Khởi động lại dịch vụ"
+      ]
+    },
+    "util-clear-queue": {
+      "title": "Xóa Sạch Lệnh In Bị Kẹt",
+      "desc": "Hủy toàn bộ các tài liệu đang kẹt trong hàng đợi (Spool Queue) không xóa được qua giao diện.",
+      "actionType": "fix",
+      "actionLabel": "Xóa Hàng Đợi",
+      "stepTitles": [
+        "Tạm dừng dịch vụ Print Spooler",
+        "Dọn sạch thư mục hàng đợi",
+        "Khởi động lại Print Spooler"
+      ]
+    },
+    "util-rpc-named-pipes": {
+      "title": "Cấu Hình Ưu Tiên RPC over Named Pipes",
+      "desc": "Khắc phục việc Windows 11 từ chối kết nối máy in chia sẻ qua tên máy chủ qua cổng TCP 445.",
+      "actionType": "fix",
+      "actionLabel": "Cấu Hình",
+      "stepTitles": [
+        "Cấu hình RpcUseNamedPipeProtocol = 1",
+        "Cấu hình RpcProtocols = 7 (Hỗ trợ cả TCP và Named Pipes)",
+        "Restart Print Spooler"
+      ]
+    },
+    "util-enable-firewall-sharing": {
+      "title": "Mở Tường Lửa Cho Phép Chia Sẻ",
+      "desc": "Mở đầy đủ các Rule tường lửa cho File and Printer Sharing và Network Discovery.",
+      "actionType": "fix",
+      "actionLabel": "Mở Tường Lửa",
+      "stepTitles": [
+        "Mở Rule File and Printer Sharing",
+        "Mở Rule Network Discovery",
+        "Bật các dịch vụ dò tìm thiết bị"
+      ]
+    },
+    "util-allow-guest-auth": {
+      "title": "Cho Phép Đăng Nhập Khách (Insecure Guest)",
+      "desc": "Khắc phục tình trạng Windows chặn truy cập vào máy in chia sẻ khi máy chủ không cài mật khẩu.",
+      "actionType": "fix",
+      "actionLabel": "Bật Guest Auth",
+      "stepTitles": [
+        "Cấu hình AllowInsecureGuestAuth = 1",
+        "Cấu hình ForceGuest = 0",
+        "Khởi động lại LanmanWorkstation"
+      ]
+    },
+    "util-spooler-crash-recovery": {
+      "title": "Cứu Hộ Spooler Crash Liên Tục",
+      "desc": "Khắc phục sự cố Spooler tự dừng ngay sau khi mở bằng cách cách ly thư mục driver bị lỗi.",
+      "actionType": "fix",
+      "actionLabel": "Cứu Hộ",
+      "stepTitles": [
+        "Dừng dịch vụ Print Spooler",
+        "Đổi tên thư mục driver x64",
+        "Đổi tên thư mục driver W32X86",
+        "Khởi động lại để tạo cấu trúc driver sạch"
+      ]
+    },
+    "util-canon-comm-fix": {
+      "title": "Sửa Lỗi \"Communication Error\" Canon LBP 2900 / 3300",
+      "desc": "Khắc phục hoàn toàn lỗi mất kết nối máy in Canon do xung đột cổng mạng ảo CNBJNP và USB Monitor.",
+      "actionType": "fix",
+      "actionLabel": "Sửa Lỗi Canon",
+      "stepTitles": [
+        "Dừng Print Spooler và dọn hàng đợi",
+        "Xóa khóa USB Monitor trong Registry",
+        "Quét và xóa toàn bộ cổng mạng CNBJNP ảo",
+        "Sao chép file mscms.dll vào spool driver",
+        "Khởi động lại Spooler và cắm lại cáp USB"
+      ]
+    },
+    "util-toggle-wpp": {
+      "title": "Bật / Tắt Windows Protected Print Mode (Win 11 24H2)",
+      "desc": "Tắt chế độ in bảo vệ WPP mới của Windows 11 24H2 để cho phép cài và chia sẻ driver máy in cũ.",
+      "actionType": "fix",
+      "actionLabel": "Tắt WPP",
+      "stepTitles": [
+        "Tạo khóa cấu hình WPP trong Policies",
+        "Đặt WindowsProtectedPrintGroupPolicyState = 0 (Tắt WPP)",
+        "Restart Print Spooler"
+      ]
+    },
+    "util-reset-spooler-acl": {
+      "title": "Reset Quyền Dịch Vụ Spooler (ACL)",
+      "desc": "Khôi phục quyền truy cập Security Descriptor mặc định của dịch vụ Print Spooler.",
+      "actionType": "fix",
+      "actionLabel": "Reset ACL",
+      "stepTitles": [
+        "Cấu hình Startup type thành Automatic",
+        "Áp dụng bộ quyền chuẩn SDDL cho Spooler",
+        "Khởi động dịch vụ"
+      ]
+    },
+    "util-clean-tcp-ports": {
+      "title": "Dọn Dẹp Cổng TCP/IP Lỗi (Giữ Cổng USB/LPT)",
+      "desc": "Xóa các cổng in mạng IP cũ bị đổi hoặc treo trong Registry, giữ nguyên vẹn các cổng USB, LPT, COM.",
+      "actionType": "fix",
+      "actionLabel": "Dọn Cổng IP",
+      "stepTitles": [
+        "Liệt kê danh sách Ports trong Registry",
+        "Lọc và loại bỏ các cổng IP không hợp lệ",
+        "Restart Print Spooler"
+      ]
+    },
+    "util-list-remove-drivers": {
+      "title": "Quản Lý & Gỡ Driver Cũ Bằng PnPUtil",
+      "desc": "Xem tất cả gói driver máy in bên thứ 3 (oemXX.inf) đã nạp vào Windows và gỡ bỏ driver lỗi sạch sẽ.",
+      "actionType": "fix",
+      "actionLabel": "Gỡ Driver",
+      "stepTitles": [
+        "Liệt kê danh sách driver trong Driver Store",
+        "Gỡ gói driver bị lỗi"
+      ]
+    },
+    "util-credential-manager": {
+      "title": "Quản Lý Windows Credential Máy In",
+      "desc": "Xem, thêm hoặc xóa tài khoản đăng nhập máy chủ in được lưu trong Windows Credential Manager.",
+      "actionType": "manage",
+      "actionLabel": "Quản Lý",
+      "stepTitles": [
+        "Liệt kê danh sách Credential đã lưu",
+        "Thêm tài khoản truy cập máy chủ",
+        "Xóa tài khoản cũ bị sai pass"
+      ]
+    },
+    "util-open-print-mgmt": {
+      "title": "Mở Print Management (printmanagement.msc)",
+      "desc": "Mở trình quản lý máy in, driver, cổng in và máy chủ in nâng cao của Windows Pro/Enterprise.",
+      "actionType": "open",
+      "actionLabel": "Mở",
+      "stepTitles": [
+        "Mở snap-in Print Management"
+      ]
+    },
+    "util-open-print-server-props": {
+      "title": "Mở Print Server Properties (Quản Lý Ports/Drivers)",
+      "desc": "Hộp thoại quản lý chuyên sâu Ports, Drivers và Formats mẫu in của hệ điều hành.",
+      "actionType": "open",
+      "actionLabel": "Mở",
+      "stepTitles": [
+        "Gọi printui.dll để mở Print Server Properties"
+      ]
+    },
+    "util-open-services": {
+      "title": "Mở Quản Trị Dịch Vụ (services.msc)",
+      "desc": "Xem trạng thái các dịch vụ Spooler, LanmanServer, LanmanWorkstation, MpsSvc, RpcSs.",
+      "actionType": "open",
+      "actionLabel": "Mở",
+      "stepTitles": [
+        "Mở Services Management Console"
+      ]
+    },
+    "util-open-devmgmt": {
+      "title": "Mở Device Manager (devmgmt.msc)",
+      "desc": "Kiểm tra driver cổng USB, IEEE 1284.4 hoặc thiết bị máy in có bị chấm vàng cảnh báo.",
+      "actionType": "open",
+      "actionLabel": "Mở",
+      "stepTitles": [
+        "Mở Device Manager"
+      ]
+    },
+    "util-fix-canon-2900": {
+      "title": "Sửa Lỗi Giao Tiếp Canon LBP 2900 / 3300",
+      "desc": "Khắc phục lỗi Communication Error trên Canon 2900/3300: đóng tiến trình Canon Language Monitor bị treo (CNAB4SWK / captmon), dọn sạch hàng đợi in và khởi động lại Spooler.",
+      "actionType": "fix",
+      "actionLabel": "Sửa Lỗi",
+      "stepTitles": [
+        "Dừng Print Spooler & đóng tiến trình Canon Monitor bị treo",
+        "Dọn sạch các lệnh in kẹt trong thư mục Spool PRINTERS",
+        "Khởi động lại dịch vụ Print Spooler"
+      ]
+    },
+    "util-wpp-toggle": {
+      "title": "Bật / Tắt Windows Protected Print (WPP)",
+      "desc": "Tắt chế độ in bảo vệ WPP mới của Windows 11 24H2 để cho phép cài và chia sẻ driver máy in cũ.",
+      "actionType": "fix",
+      "actionLabel": "Tắt WPP",
+      "stepTitles": [
+        "Xóa khóa Registry chính sách ép buộc WPP",
+        "Khởi động lại dịch vụ Print Spooler",
+        "Mở Cài đặt Máy in để kiểm tra"
+      ]
+    },
+    "util-open-devices-printers": {
+      "title": "Mở Devices and Printers",
+      "desc": "Mở cửa sổ Devices and Printers trong Control Panel trên Windows 10/11.",
+      "actionType": "open",
+      "actionLabel": "Mở",
+      "stepTitles": [
+        "Mở Devices and Printers"
+      ]
+    }
+  },
+  "aboutModal": {
+    "title": "Thông Tin Ứng Dụng",
+    "subtitle": "PrintLAN Fixer - Tiện ích khắc phục lỗi chia sẻ máy in",
+    "tabAbout": "Giới Thiệu",
+    "tabDisclaimer": "Miễn Trừ Trách Nhiệm",
+    "tabFeedback": "Góp Ý & Báo Lỗi",
+    "tabDonate": "Ủng Hộ Tác Giả",
+    "authorLabel": "Tác giả",
+    "authorName": "VeMines",
+    "versionLabel": "Phiên bản",
+    "versionValue": "v1.0.0",
+    "licenseLabel": "Giấy phép",
+    "licenseValue": "MIT License",
+    "appIntro": "PrintLAN Fixer là tiện ích desktop hiệu năng cao, độc lập (không cần cài đặt), được xây dựng nhằm giải quyết lỗi chia sẻ máy in Windows kinh điển (0x00000709, 0x0000011b, 0x00000bc4, xung đột Spooler Canon, lỗi Point & Print, v.v.).",
+    "preCheckTitle": "Khuyến Cáo Kiểm Tra Trước Khi Thực Thi",
+    "preCheck1": "Khuyến nghị tạo Điểm khôi phục hệ thống (System Restore Point) hoặc sao lưu Registry trước khi áp dụng các phương án can thiệp sâu (như thay thế DLL máy chủ).",
+    "preCheck2": "Kiểm tra kỹ địa chỉ IP hoặc tên máy tính máy chủ và kết nối vật lý cáp mạng/Wi-Fi trước khi kết luận lỗi phần mềm.",
+    "preCheck3": "Đọc kỹ phần 'Chi tiết' và giải thích nguyên nhân của từng mã lỗi trước khi nhấn nút Áp dụng.",
+    "disclaimerTitle": "Tuyên Bố Miễn Trừ Trách Nhiệm",
+    "disclaimerP1": "PrintLAN Fixer can thiệp trực tiếp vào cấu hình Registry Windows, dịch vụ hệ thống Print Spooler, quyền tệp DLL và quy tắc Windows Firewall.",
+    "disclaimerP2": "Ứng dụng được cung cấp miễn phí 'nguyên trạng' (AS-IS) vì mục đích hỗ trợ cộng đồng kỹ thuật và IT Helpdesk. Tác giả KHÔNG chịu bất kỳ trách nhiệm pháp lý hay nghĩa vụ bồi thường nào đối với các sự cố gián đoạn dịch vụ, xung đột phần mềm hoặc mất mát dữ liệu trên hệ thống của bạn.",
+    "disclaimerP3": "Người dùng cần có kiến thức cơ bản về hệ thống mạng Windows và tự chịu trách nhiệm khi thực thi trên các máy chủ quan trọng.",
+    "feedbackTitle": "Đóng Góp Ý Kiến & Báo Lỗi",
+    "feedbackDesc": "Mọi ý kiến đóng góp, đề xuất tính năng mới hoặc yêu cầu hỗ trợ mã lỗi máy in đặc thù đều được hoan nghênh tại GitHub Issues của dự án.",
+    "openGithubIssues": "Mở GitHub Issues",
+    "githubRepo": "GitHub Repository",
+    "feedbackGuideTitle": "Mẹo khi gửi báo lỗi:",
+    "feedbackGuide1": "Nêu rõ phiên bản Windows (ví dụ: Windows 11 24H2 hay Windows 10 22H2).",
+    "feedbackGuide2": "Đính kèm mã lỗi cụ thể (0x00000709, 0x0000011b...) và model máy in (Canon LBP 2900, HP, Brother...).",
+    "feedbackGuide3": "Ghi rõ vai trò máy bị lỗi (Máy chủ cắm cáp hay Máy trạm kết nối qua LAN).",
+    "feedbackGuide4": "Đính kèm log.",
+    "donateTitle": "Ủng Hộ Tác Giả (Donate)",
+    "donateDesc": "Nếu PrintLAN Fixer giúp bạn tiết kiệm thời gian và khắc phục thành công sự cố máy in, một ly cà phê ủng hộ sẽ là nguồn động viên to lớn để tác giả tiếp tục duy trì và nâng cấp công cụ! ☕",
+    "qrTitle": "Quét mã QR để ủng hộ"
+  }
+}
