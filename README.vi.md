@@ -146,7 +146,7 @@ npm run tauri -- build --no-bundle
 
 File sau khi biên dịch nằm tại:
 ```text
-src-tauri/target/release/printlan-fixer.exe (~5.8 MB)
+src-tauri/target/release/PrintLan-Fixer.exe (~5.8 MB)
 ```
 
 ---
